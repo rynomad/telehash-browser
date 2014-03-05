@@ -1,10 +1,13 @@
 // this file contains all the forge-based crypto and binary/buffer functions
 // it must be required after thjs is loaded, so that it binds all of it's functions into it
 require('./includes/forge.min.js')
-var SecureRandom = require('./includes/rng.js')
-var getSECCurveByName = require('./includes/sec.js')
-var BigInteger = require("jsbn")
-var ECPointFp = require("./includes/ec.js").ECPointFp
+
+var ecc = require('ecc-jsbn')
+  , SecureRandom = require('./includes/rng.js')
+  , getSECCurveByName = ecc.getSECCurveByName
+  , BigInteger = require("jsbn")
+  , ECPointFp = ecc.ECPointFp
+
 
 // externally add forge lib dependencies
 var rsa, pki, asn1;
